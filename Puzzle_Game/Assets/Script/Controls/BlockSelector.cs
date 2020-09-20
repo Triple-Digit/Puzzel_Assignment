@@ -31,14 +31,21 @@ public class BlockSelector : MonoBehaviour
     {
         
         Vector2 mousePosition = mouseInput.Mouse.MousePosition.ReadValue<Vector2>();
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero, 0f);
-        if (hit)
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            Debug.Log("Clicked Object");
-            hit.transform.gameObject.GetComponent<BlocksAI>().selected = true;
+            if(hit.transform != null)
+            {                
+                hit.transform.gameObject.GetComponent<BlocksAI>().DestroyBlock();
+            }            
         }
         else return;
     }
+        
+        
+    
 
     
 }

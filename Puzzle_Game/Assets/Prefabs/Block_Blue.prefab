@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4838980309378404893}
   m_Layer: 8
   m_Name: Block_Blue
-  m_TagString: Blocks
+  m_TagString: BlueBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &4838980311064180125
 GameObject:
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &4838980311065774814
 GameObject:
@@ -313,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &4838980311255870641
 GameObject:
@@ -372,4 +375,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}

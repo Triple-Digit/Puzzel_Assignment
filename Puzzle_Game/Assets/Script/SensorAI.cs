@@ -17,30 +17,21 @@ public class SensorAI : MonoBehaviour
     #endregion
 
     public void DestroyAdjacentBlock(int parentBlockColor)
-    {        
-        adjacentBlockColor = GetColor();
-
-        Debug.Log(adjacentBlockColor.ToString());
-
-        if (parentBlockColor == adjacentBlockColor)
+    {            
+        if (adjacentBlockColor != parentBlockColor)
         {
-            Debug.Log("Same Color");
-            if (blockToDestroy.GetComponent<BlocksAI>().selected != true)
-            {
-                blockToDestroy.GetComponent<BlocksAI>().DestroyBlock();
-            }
+            return;
         }
-        else return;
+        else
+        {
+            if (blockToDestroy.transform.gameObject.GetComponent<BlocksAI>().selected)
+                return;
+            else
+            blockToDestroy.transform.gameObject.GetComponent<BlocksAI>().DestroyBlock();
+        }
     }
 
-    private int GetColor()
-    {
-        if(blockToDestroy == null)
-        {
-            return 0;
-        }
-        return blockToDestroy.gameObject.GetComponent<BlocksAI>().color;
-    }
+    
 
     private void OnTriggerStay(Collider other)
     {
@@ -50,5 +41,25 @@ public class SensorAI : MonoBehaviour
         }
         
         blockToDestroy = other.gameObject;
+        
+        if (blockToDestroy.tag == "BlueBlock")
+        {
+            adjacentBlockColor =  1;
+        }
+
+        if (blockToDestroy.tag == "GreenBlock")
+        {
+            adjacentBlockColor = 2;
+        }
+
+        if (blockToDestroy.tag == "YellowBlock")
+        {
+            adjacentBlockColor = 3;
+        }
+
+        if (blockToDestroy.tag == "RedBlock")
+        {
+            adjacentBlockColor = 4;
+        }
     }
 }

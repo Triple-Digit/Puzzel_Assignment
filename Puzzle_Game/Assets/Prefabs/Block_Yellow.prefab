@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &3040977860656024709
 GameObject:
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &3040977860911482737
 GameObject:
@@ -176,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &3040977861067804134
 GameObject:
@@ -235,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjacentBlockColor: 0
+  _parentBlockColor: 0
   blockToDestroy: {fileID: 0}
 --- !u!1 &3040977861995114104
 GameObject:
@@ -252,7 +256,7 @@ GameObject:
   - component: {fileID: 3040977861995114107}
   m_Layer: 8
   m_Name: Block_Yellow
-  m_TagString: Blocks
+  m_TagString: YellowBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

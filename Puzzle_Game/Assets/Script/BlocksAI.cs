@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BlocksAI : MonoBehaviour
 {
@@ -18,36 +19,30 @@ public class BlocksAI : MonoBehaviour
     [Header("Sensors")]
     public GameObject[] sensor;
 
+    public bool selected;
+    private bool scored;
 
-    public bool selected, scored;
     
-
-    private void Update()
-    {
-        if(selected)
-        {
-            DestroyBlock();
-            selected = false;
-        }
-    }
-
     public void DestroyBlock()
-    {
-        Debug.Log("Destroying");
-                        
-        if(!scored)
+    {   
+        if (selected)
+            return;
+        else
         {
-            scored = true;
-            GameManager.instance.Score();
-        }
+            selected = true;
+            if (!scored)
+            {
+                scored = true;
+                GameManager.instance.Score();
+            }
 
-        foreach (var item in sensor)
-        {
-            
-            item.GetComponent<SensorAI>().DestroyAdjacentBlock(color);
-        }
-        
-        Destroy(gameObject, 0.5f);
+            foreach (var item in sensor)
+            {
+                item.GetComponent<SensorAI>().DestroyAdjacentBlock(color);
+            }
+            transform.DOScale(0f, 0.4f);
+            Destroy(gameObject, 0.5f);
+        }        
     }
 
 }
